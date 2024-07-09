@@ -1,40 +1,55 @@
-                                                Task's 
-- [✓] Widerstandskasten-Minigame
-- [ ] Oszilloskop-Minigame (Luca) - Verschoben auf Ulbrichts-Deadline
-- [ ] Tassen/Flaschen einsammeln (Erik)
-- [ ] FAQ (Kevin)
-- [ ] Lernvideos (B15F-Board,Multimeter,Oszi)
-- [ ] B15F-Minigame
-- [ ] Steckbrett-Minigame
-- [ ] Multimeter-Minigame      (Duc:mache ich gerade)                            
-                                                                                                
-                                                Herr Ulbrichts Vorschläge
-also die Basics die rüberkommen sollten wären:
-- Strom, Spannung, Widerstände(reihen parallelschaltung) (also das was man normalerweise im Physik-Abi hat)
-- Kabelfarben/Farben auf dem Steckbrett: Wer blau/scharz für Plus verwendet, den kann man gleich in die Hölle schicken.
-- Multimeter: Spannung Messen, Widerstand messen (nacher wider in den richtigen Kasten einsortieren (kann man das als minigame machen? ), Strom messen (richtiger messbereich! nicht über 500mA sonst grillte es das Multimeter). Vllt vorher testen ob es jemand gegrillt hat?
-- Oszilloskop: was macht das eigentlich? (Spannung messen und über Zeit plotten), An welchen Knöpfen muss ich drehen (Autoset ist für Noobs)
-- B15: was kann man damit machen, Betriebsspannung, ADC-messen, Digital-I/O, Analog-Ausgabe. Vllt kann man in das Game auch ein feedback einbauen. Wenn man Programmcode  (zufällig, 2-3 varianten) vorgibt, und das B15 dann etwas ausgibt und man das Ergebnis dann wieder ins Spiel einträgt.
-- Vllt Linux Grundlagen? Makefile, cd, ls, programmausführen. Ausgabe in Datei umleiten, vllt wieder mit feedback über die labor-rechner oder mit einem online terminal: https://linuxcontainers.org/incus/try-it/?id=c5a8a2c7-4863-4c92-8701-2dfd84214345#introduction
-- Pfandflaschen einsammeln
+# WorkAdventure Map Starter Kit
 
-Für HWP2, dort werden Sie dann vermutlich den Raum Z530 mehr nutzen:
-- GALEP (Universalprogrammieradapter u.a. für GAL's )
--AVR-ISP programmer (Brauchen wir in SnP weil wir damit eine Binäruhr bauen und Programmieren)
-- Minigame: frühzeitig(nicht erst am Semesterende) eine Leiterplatte designen(KiCAD) und einen Termin an der CNC-Fräse in der LI014 reservieren. Nahher Leiterplatte löten. (also der Inhalt wäre hier: nicht wie bediene ich kicad, sondern das man  nicht bis zum Ende des Semesters wartet, ich weiß nicht ob Ihr Game irgendeine Zeitkomponente hat.)
+![map](./map.png)
 
-So das waren jetzt sehr viele Vorschläge, ich glaube das schaffen Sie nicht alles. Aber wenn man mit dem Game spielerisch V1 lösen kann wäre das glaube schon ein Erfolg.
-Sie hatten ja im Vortrag schon erwähnt das es vielen an den Voraussetzungen für das Studium fehlt weil Sie kein richtiges Abi haben, sodass sie dann von den Inhalten quasi erschalgen werden. Aber das kann man alles mit Fleiß und vllt dann auch mit Spiel&Spaß nachholen. Demotiviert aufgeben wäre schlecht.
+This is a starter kit to help you build your own map for [WorkAdventure](https://workadventu.re).
 
-                                            Anstehende Aufgaben
-- https://hardwarelabor.imn.htwk-leipzig.de Website für das FAQ (Zugang anfragen?)
-- Implementierung der einzelnen Tische
-- Erweiterung der Map 
-- Videos skripten und aufnehmen (Late-Night-Sessions LET'S GOOO)
+To understand how to use this starter kit, follow the tutorial at [https://workadventu.re/map-building](https://workadventu.re/map-building).
 
-                                            Good-to-Know
-- Cookies um Progress zu speichern
-- iFrame-Einbindung für Point n click 
-- ,,How?" Button auf dem Oszilloskop
-- https://www.oszilloskope.net/oszilloskop/ (interaktives Oszi)
-- https://www.physics-chemistry-interactive-flash-animation.com/electricity_electromagnetism_interactive/multimeter_flash.htm (interaktives Multimeter)
+## Structure
+* *public*: Static files like PDFs or audio files
+* *src*: Scripts files
+* *tilesets*: All tilesets
+* *map.tmj*: Map file
+* *map.png*: The map thumbnail displayed on the in-game map information
+
+If you want to use more than one map file, just add the new map file on root or in a folder.
+
+we recommend using 500x500 images for the map thumbnails.
+
+If you are going to create custom websites to embed in the map, please reference the HTML files in the `input` option in *vite.config.js*.
+
+## Requirements
+
+Node.js version >=17
+
+## Installation
+
+With npm installed (comes with [node](https://nodejs.org/en/)), run the following commands into a terminal in the root directory of this project:
+
+```shell
+npm install
+npm run dev
+```
+
+## Test production map
+
+You can test the optimized map as it will be in production:
+```sh
+npm run build
+npm run prod
+```
+
+## Licenses
+
+This project contains multiple licenses as follows:
+
+* [Code license](./LICENSE.code) *(all files except those for other licenses)*
+* [Map license](./LICENSE.map) *(`map.tmj` and the map visual as well)*
+* [Assets license](./LICENSE.assets) *(the files inside the `src/assets/` folder)*
+
+### About third party assets
+
+If you add third party assets in your map, do not forget to:
+1. Credit the author and license with the "tilesetCopyright" property present in the properties of each tilesets in the `map.tmj` file
+2. Add the license text in LICENSE.assets
